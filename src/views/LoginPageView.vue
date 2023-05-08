@@ -90,12 +90,13 @@ import { validateEmail } from '@/utils/validate'
             display: inline-block;
             left: -130px;
         }
-        position: relative;
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        /*height: 100%;*/
-        margin-top: 100px;
+        min-height: 100vh;
+        width: 100%;
+        text-align: center;
         .text-login-param{
             color: #42b983 !important;
         }
@@ -155,26 +156,47 @@ import { validateEmail } from '@/utils/validate'
 
     }
 
-  @media (max-width: 1100px){
-      .child-personal-account-login{
-          left: 150px;
-      }
-      .asset{
-          left: -130px;
-      }
-  }
-  @media (max-width: 800px){
-      .child-personal-account-login{
-          left: 50px;
-      }
-    .asset{
-          left: -180px;
-      }
-  }
-  @media (max-width: 560px){
-      .child-personal-account-login{
-          left: 80px;
-      }
-  }
+    @media (max-width: 1100px){
+        .child-personal-account-login{
+            //left: 150px;
+        }
+    }
+
+    @media (max-width: 800px){
+        .child-personal-account-login{
+            //left: 50px;
+            .el-form {
+                width: 100%;
+            }
+        }
+        .asset{
+            left: -180px;
+        }
+    }
+
+    @media (max-width: 560px){
+        .child-personal-account-login{
+            //left: 80px;
+            .el-form {
+                width: 100%;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .child-personal-account-login {
+            //left: 0;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .el-form {
+            width: 100%;
+        }
+
+        .asset {
+            display: none;
+        }
+    }
 </style>
 

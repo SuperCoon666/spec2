@@ -87,17 +87,15 @@ export default {
 </script>
 
 <style lang="scss">
-    .content-holder{
+    .content-holder {
         position: relative;
         top: 50px;
     }
-    .Headline{
+    .Headline {
         position: relative;
-        width: 600px;
-        height: 100px;
-        margin-top: 20px;
-        left: 400px;
-
+        max-width: 600px;
+        width: 80%;
+        margin: 20px auto;
         font-size: 48px;
         font-weight: 600;
         line-height: 52px;
@@ -114,49 +112,15 @@ export default {
         background-color: #204969;
     }
 
-    .but-header{
+    .but-header {
         position: relative;
         top: 40px;
-        /*left: 0px;*/
+        display: flex;
+        justify-content: center;
     }
-    .rec-but{
-        position: relative;
-        left: -130px;
+    .place-but {
         width: 180px;
-
-        /*display: flex;*/
-        /*justify-content: center;*/
-        /*align-items: center;*/
-        /*text-decoration: none;*/
-        margin-left: 10px;
-
-        color: #42b983 !important;
-        background-color: #212828 !important;
-        border-color: #212828 !important;
-        font-size: large;
-    }
-    .filter-but{
-        position: relative;
-        left: -130px;
-        width: 180px;
-
-        /*display: flex;*/
-        /*justify-content: center;*/
-        /*align-items: center;*/
-        /*text-decoration: none;*/
-        margin-left: 10px;
-
-        .el-input__inner {
-            background-color: #212828 !important;
-            border-color: #212828 !important;
-        }
-    }
-    .place-but{
-        position: relative;
-        /*left: -130px;*/
-        width: 180px;
-        margin-left: 10px;
-
+        margin: 0 5px;
 
         color: #42b983 !important;
         background-color: #212828 !important;
@@ -167,74 +131,58 @@ export default {
             border-color: #212828 !important;
         }
     }
-    .el-select-dropdown__item{
+    .el-select-dropdown__item {
         color: #42b983 !important;
         background-color: #212828 !important;
         border-color: #212828 !important;
         font-size: medium;
     }
-    .el-select-dropdown{
+    .el-select-dropdown {
         background-color: #212828 !important;
         border-color: #212828 !important;
     }
-  @media (max-width: 1250px){
-      .Headline{
-          left: 320px;
-      }
-  }
-  @media (max-width: 1080px){
-      .Headline{
-          width: 400px;
-          font-size: 38px;
-      }
-      .but-header{
-          left: 100px;
-      }
-  }
-  @media (max-width: 700px){
-      .Headline{
-          left: 120px;
-      }
-  }
-  @media (max-width: 600px){
-      .Headline{
-          left: 80px;
-          width: 300px;
-          font-size: 30px;
-      }
-  }
-  @media (max-width: 460px){
-      .Headline{
-          left: 25px;
-          width: 200px;
-          font-size: 20px;
-      }
-      .but-rec{
-          visibility: hidden;
-      }
-      .but-filter{
-          left: -100px;
-      }
-  }
-  @media (max-width: 300px){
-      .Headline{
-          left: 10px;
-          width: 170px;
-          font-size: 16px;
-      }
-  }
-  @media (min-width: 2300px){
-      .Headline{
-          left: 950px;
-          width: 950px;
-          font-size: 55px;
-      }
-  }
-  @media (min-width: 3000px){
-      .Headline{
-          left: 1450px;
-          width: 1250px;
-          font-size: 60px;
-      }
-  }
+    @media (max-width: 1080px) {
+        .Headline {
+            font-size: 38px;
+        }
+    }
+    @media (max-width: 700px) {
+        .Headline {
+            font-size: 30px;
+        }
+    }
+    @media (max-width: 600px) {
+        .Headline {
+            font-size: 25px;
+        }
+    }
+    @media (max-width: 460px) {
+        .Headline {
+            font-size: 20px;
+        }
+        .but-header {
+            flex-wrap: wrap;
+        }
+        .but-rec {
+            display: none;
+        }
+    }
+    @media (max-width: 300px) {
+        .Headline {
+            font-size: 16px;
+        }
+    }
+    @media (min-width: 2300px) {
+        .Headline {
+            width: 50%;
+            font-size: 55px;
+        }
+    }
+    @media (min-width: 3000px) {
+        .Headline {
+            width: 40%;
+            font-size: 60px;
+        }
+    }
 </style>
+

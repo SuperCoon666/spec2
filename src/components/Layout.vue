@@ -194,50 +194,54 @@ export default {
         color: #42b983;
         visibility: hidden !important;
     }
-    @media (min-width: 800px){
-        .big-screen{
-            width: 65% !important;
-        }
-    }
-    @media (max-width: 800px){
-        .small-screen{
-          width: 100% !important;
-          position: sticky !important;
-        }
-        .small-search{
-            width: 150px;
-            right: 10px !important;
-        }
-    }
-    @media (max-width: 650px) {
-        .small-search{
-            width: 120px;
-            right: 25px !important;
-        }
-        .small-my-page{
-            padding-right: 20px;
-        }
-        .small-menu{
-            visibility: hidden;
-        }
-        .small-logo{
-            padding-right: 0;
-        }
-        .mini-menu{
-            visibility: visible;
-        }
-    }
-    @media (max-width: 470px) {
-        .small-my-page{
-            visibility: hidden;
-        }
-        .mini-my-page{
-            visibility: visible !important;
-        }
-        .small-search{
-            width: 100px;
-            right: 140px !important;
-        }
-    }
+    @media (min-width: 800px) {
+  .big-screen {
+    width: 65% !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .small-screen {
+    width: 100% !important;
+    position: sticky !important;
+  }
+  .small-search {
+    width: 150px;
+    right: 10px !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .small-search {
+    width: 120px;
+    right: 25px !important;
+  }
+  .small-my-page {
+    padding-right: 20px;
+  }
+  .small-menu {
+    visibility: hidden;
+  }
+  .small-logo {
+    padding-right: 0;
+  }
+  .mini-menu {
+    visibility: visible;
+  }
+}
+
+@media (max-width: 470px) {
+  .small-my-page {
+    visibility: hidden;
+  }
+  .mini-my-page {
+    visibility: visible !important;
+  }
+  .small-search {
+    width: 100px;
+    right: 140px !important;
+  }
+}
+
 
 </style>
