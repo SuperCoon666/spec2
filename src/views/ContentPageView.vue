@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="content-page-header">
-            <article class="Headline big-screen small-screen">
+            <article class="Headline">
                 {{Headline}}
             </article>
-            <article class="MainContent big-screen small-screen">
+            <article class="MainContent">
                 {{MainContent}}
             </article>
         </div>
@@ -27,6 +27,11 @@
 </script>
 
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .content-page-header {
     position: relative;
     max-width: 800px;
@@ -39,8 +44,9 @@
     padding: 0 15px;
     box-sizing: border-box;
     padding-top: 40px;
-    padding-left: 15px; /* Добавьте эту строку */
+    padding-left: 15px;
     padding-right: 15px;
+    padding-bottom: 40px;
 }
 
 .Headline {
@@ -87,36 +93,37 @@
     }
     .Headline {
         font-size: 35px;
-        padding: 32px 16px; /* Измените отступы здесь */
+        padding: 32px 16px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .MainContent {
         font-size: 35px;
-        padding: 32px 16px; /* Измените отступы здесь */
+        padding: 32px 16px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
 @media (max-width: 450px) {
     .Headline {
         font-size: 30px;
-        padding: 32px 8px; /* Измените отступы здесь */
+        padding: 32px 8px;
     }
     .MainContent {
         font-size: 16px;
-        padding: 32px 8px; /* Измените отступы здесь */
+        padding: 32px 8px;
     }
 }
 
 @media (max-width: 300px) {
     .Headline {
         font-size: 24px;
-        padding: 32px 4px; /* Измените отступы здесь */
+        padding: 32px 4px;
     }
     .MainContent {
         font-size: 14px;
-        padding: 32px 4px; /* Измените отступы здесь */
+        padding: 32px 4px;
     }
 }
-
-
-
 </style>

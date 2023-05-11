@@ -115,6 +115,13 @@ export default {
 </script>
 
 <style lang="scss">
+//  * {
+//      outline: 1px solid red !important;
+//    }
+  //  .layout-content-menu{
+  //   // font-size: 18px !important;
+  //  }
+
     .popper__arrow::after{
         border-bottom-color: #485656 !important;
     }
@@ -194,11 +201,6 @@ export default {
         color: #42b983;
         visibility: hidden !important;
     }
-    @media (min-width: 800px) {
-  .big-screen {
-    width: 65% !important;
-  }
-}
 
 @media (max-width: 800px) {
   .small-screen {
@@ -208,6 +210,11 @@ export default {
   .small-search {
     width: 150px;
     right: 10px !important;
+  }
+  .personal-area-layout {
+      .personal-area-layout-header {
+          padding: 0 20px;
+      }
   }
 }
 
@@ -227,6 +234,11 @@ export default {
   }
   .mini-menu {
     visibility: visible;
+  }
+
+  .small-search {
+      width: 120px;
+      right: 10px !important;
   }
 }
 

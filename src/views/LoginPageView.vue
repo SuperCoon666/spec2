@@ -1,7 +1,9 @@
 <template>
     <div class="child-personal-account-login">
         <el-form :model="loginForm" :rules="loginRules" ref="loginForm" @submit.native.prevent="handleLogin" >
-            <h3 class="text-login-param">Login</h3>
+            <el-form-item class="login-title">
+                <h3 class="text-login-param">Login</h3>
+            </el-form-item>
             <el-form-item prop="phone">
                 <el-input prefix-icon="el-icon-message" placeholder="Email" ref="login" v-model="loginForm.phone"
                 ></el-input>
@@ -84,12 +86,7 @@ import { validateEmail } from '@/utils/validate'
 
 <style lang="scss">
     .child-personal-account-login {
-        .asset {
-            margin-top: 150px;
-            position: relative;
-            display: inline-block;
-            left: -130px;
-        }
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -97,6 +94,14 @@ import { validateEmail } from '@/utils/validate'
         min-height: 100vh;
         width: 100%;
         text-align: center;
+
+        .asset {
+            margin-top: 150px;
+            position: relative;
+            display: inline-block;
+            left: -130px;
+        }
+
         .text-login-param{
             color: #42b983 !important;
         }
@@ -116,6 +121,10 @@ import { validateEmail } from '@/utils/validate'
 
             h3 {
                 color: #303133;
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .el-form-item {
@@ -154,29 +163,28 @@ import { validateEmail } from '@/utils/validate'
             }
         }
 
-    }
+        .login-title {
+            margin-bottom: 1rem;
+            margin-top: 50px;
 
-    @media (max-width: 1100px){
-        .child-personal-account-login{
-            //left: 150px;
+            h3 {
+                color: #42b983;
+                margin: 0;
+            }
         }
+
     }
 
     @media (max-width: 800px){
         .child-personal-account-login{
-            //left: 50px;
             .el-form {
                 width: 100%;
             }
-        }
-        .asset{
-            left: -180px;
         }
     }
 
     @media (max-width: 560px){
         .child-personal-account-login{
-            //left: 80px;
             .el-form {
                 width: 100%;
             }
@@ -185,17 +193,12 @@ import { validateEmail } from '@/utils/validate'
 
     @media (max-width: 480px) {
         .child-personal-account-login {
-            //left: 0;
             width: 100%;
             padding: 0 20px;
         }
 
         .el-form {
             width: 100%;
-        }
-
-        .asset {
-            display: none;
         }
     }
 </style>
