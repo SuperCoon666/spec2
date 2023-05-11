@@ -13,7 +13,7 @@
                 <el-submenu index="1">
                     <template slot="title">
                     <i class="el-icon-cpu"></i>
-                    <span>Recommendations</span>
+                    <span >Recommendations</span>
                     </template>
                     <el-menu-item-group title="In trend: ">
                         <el-menu-item index="1-1">
@@ -102,34 +102,35 @@
                 </el-menu>
         </el-col>
         </el-row>
-        <el-dialog title="Settings" :visible.sync="dialogVisible" width="30%">
-        <el-form label-position="top">
-            <el-form-item label="Theme Color">
-                <el-select v-model="selectedColor" placeholder="Select a color">
-                    <el-option
-                        v-for="(item, index) in themeColors"
-                        :key="index"
-                        :label="item"
-                        :value="item">
-                    </el-option>
-                </el-select>
-            </el-form-item>
-            <el-form-item label="Font Size">
-                <el-slider v-model="fontSize" :min="12" :max="24"></el-slider>
-            </el-form-item>
-            <el-form-item label="Enable Dark Mode">
-                <el-switch v-model="darkMode"></el-switch>
-            </el-form-item>
-        </el-form>
-    </el-dialog>
+        <el-dialog title="Settings" :visible.sync="dialogVisible" width="30%" >
+            <el-form label-position="top" >
+                <el-form-item label="Theme Color">
+                    <el-select v-model="selectedColor" placeholder="Select a color" style="color: #84fac5;">
+                        <el-option
+                            v-for="(item, index) in themeColors"
+                            :key="index"
+                            :label="item"
+                            :value="item">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="Font Size">
+                    <el-slider v-model="fontSize" :min="12" :max="24"></el-slider>
+                </el-form-item>
+                <el-form-item label="Enable Dark Mode">
+                    <el-switch v-model="darkMode" @change="updateTheme"></el-switch>
+                </el-form-item>
+            </el-form>
+        </el-dialog>
     </div>
 </template>
 
 <script>
+import deepmerge from 'deepmerge';
 export default {
   data() {
     return {
-        dialogVisible: false,
+
         InTrend: [
         {'template':"SQL", 'url':'/sql'},
         {'template':"RelationalVsNonRelational", 'url':'/relational-vs-non-relational'},
@@ -149,17 +150,51 @@ export default {
         selectedColor: '',
         themeColors: ['Default', 'Blue', 'Green', 'Red'],
         fontSize: 16,
-        darkMode: false
+        darkMode: false,
+        lightTheme: {
+            backgroundColor: '#eef2f1',
+            textColor: '#181d1c'
+        },
+        darkTheme: {
+            backgroundColor: '#181d1c',
+            textColor: '#eef2f1'
+        },
     }
   },
-  methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+    methods: {
+        handleOpen(key, keyPath) {
+            console.log(key, keyPath);
+        },
+        handleClose(key, keyPath) {
+            console.log(key, keyPath);
+        },
+        updateTheme() {
+            this.$store.commit('setDarkMode', this.darkMode);
+        }
     },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    }
-  }
+    computed: {
+        currentTheme() {
+            return this.$store.getters.currentTheme;
+        },
+        mainContentStyle() {
+            return deepmerge(this.currentTheme, {
+            borderRadius: '18px',
+            outline: '1px solid #252525',
+            transition: 'background-color .2s ease-in-out',
+            fill: this.currentTheme.textColor,
+            fontFamily: '"Inter", Helvetica, Arial, sans-serif',
+            fontSize: '18px',
+            fontWeight: '400',
+            lineHeight: '28px',
+            letterSpacing: '0.05em',
+            padding: '32px 36px',
+            textAlign: 'left',
+            width: '100%',
+            maxWidth: '800px'
+            });
+        }
+    },
+
 }
 </script>
 
@@ -186,14 +221,34 @@ export default {
         }
     }
     .el-dialog__body{
-        background-color: #485656;
+        background-color: #204969;
+        .el-form-item__label{
+            color: #84fac5 !important;
+        }
+    }
+    .el-dialog__header{
+        background-color: #212828;
+        .el-dialog__title{
+            color: #84fac5 !important;
+        }
+    }
+    .el-input__inner{
+        background-color: #212828 !important;
+        border: #212828 !important;
         color: #84fac5 !important;
     }
-  @media (max-width: 1285px){
+  @media (max-width: 1350px){
       .less-than-tablet{
           visibility: hidden;
       }
   }
+  @media (max-width: 767px) {
+    .el-dialog {
+        width: 70% !important;
+        margin-top: 60px !important;
+        padding: 0 !important;
+    }
+}
   .ISideBar{
       background-color: #212828;
   }

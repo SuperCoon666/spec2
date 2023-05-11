@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div class="but-header">
+      <div class="but-header" >
           <el-button class="place-but but-rec">Recommendations</el-button>
             <el-select v-model="FilterValue" placeholder="Filter" class="place-but but-filter">
                 <el-option
@@ -81,7 +81,18 @@ export default {
             this.ind += 1
             return this.ind
         },
-    }
+    },
+    computed: {
+      currentTheme() {
+        return this.$store.getters.currentTheme;
+      },
+      myElementStyle() {
+        return {
+          backgroundColor: this.currentTheme.backgroundColor,
+          color: this.currentTheme.textColor,
+        };
+      },
+    },
 };
 </script>
 

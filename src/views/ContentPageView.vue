@@ -4,7 +4,7 @@
             <article class="Headline">
                 {{Headline}}
             </article>
-            <article class="MainContent">
+            <article class="MainContent" :style="myElementStyle">
                 {{MainContent}}
             </article>
         </div>
@@ -22,7 +22,18 @@
             }
         },
         methods:{
-        }
+        },
+        computed: {
+            currentTheme() {
+                return this.$store.getters.currentTheme;
+            },
+            myElementStyle() {
+                return {
+                backgroundColor: this.currentTheme.backgroundColor,
+                color: this.currentTheme.textColor,
+                };
+            },
+        },
     }
 </script>
 

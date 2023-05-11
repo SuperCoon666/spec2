@@ -1,10 +1,10 @@
 <template>
-  <div class="App">
+  <div class="App" :style="myElementStyle">
       <div class="MainContent">
         <router-view></router-view>
       </div>
-    <Layout></Layout>
-    <SideBar></SideBar>
+    <Layout @open-settings-dialog="onOpenSettingsDialog"></Layout>
+    <SideBar ref="firstComponent"></SideBar>
   </div>
 </template>
 
@@ -21,7 +21,23 @@ export default {
     created(){
         document.body.style.margin = 0;
         document.body.style.backgroundColor = '#000000';
-    }
+    },
+    computed: {
+      currentTheme() {
+        return this.$store.getters.currentTheme;
+      },
+      myElementStyle() {
+        return {
+          backgroundColor: this.currentTheme.backgroundColor,
+          color: this.currentTheme.textColor,
+        };
+      },
+    },
+    methods: {
+      onOpenSettingsDialog() {
+        this.$refs.firstComponent.dialogVisible = true;
+      },
+    },
 };
 </script>
 

@@ -15,8 +15,37 @@
   </div>
 </template>
 
+<script>
+    export default {
+        name: "UserPageView",
+        data(){
+            return{
+                UserName: "Super Coon",
+                UserAvatar: "../assets/ava.webp",
+                Tg: "https://t.me/Super_Coon"
+            }
+        },
+        computed: {
+            currentTheme() {
+                return this.$store.getters.currentTheme;
+            },
+            myElementStyle() {
+                return {
+                backgroundColor: this.currentTheme.backgroundColor,
+                color: this.currentTheme.textColor,
+                };
+            },
+        },
+    }
+</script>
+
 <style scoped lang="scss">
 .about {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;

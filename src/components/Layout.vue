@@ -1,5 +1,5 @@
 <template>
-  <div class="personal-area-layout">
+  <div class="personal-area-layout" :style="myElementStyle">
       <div class="personal-area-layout-header">
           <div class="personal-area-layout-header-left">
               <router-link :to="{ path: '/'}" class="logo">
@@ -35,6 +35,9 @@
                             Info
                         </router-link>
                     </el-dropdown-item>
+                    <el-dropdown-item class="layout-content-menu" @click.native="openSettingsDialog">
+                      Settings
+                    </el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
           </div>
@@ -57,6 +60,9 @@
                             MyPage
                         </router-link>
                     </el-dropdown-item>
+                    <el-dropdown-item class="layout-content-menu" @click.native="openSettingsDialog">
+                      Settings
+                    </el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
           </div>
@@ -65,7 +71,6 @@
 </template>
 
 <script>
-
 export default {
     name: "HomeView",
     components: {
@@ -89,6 +94,9 @@ export default {
           { "value": "babel", "link": "https://github.com/babel/babel" }
          ];
       },
+      openSettingsDialog() {
+        this.$emit('open-settings-dialog');
+      },
       querySearchAsync(queryString, cb) {
         let links = this.links;
         let results = queryString ? links.filter(this.createFilter(queryString)) : links;
@@ -110,7 +118,18 @@ export default {
     },
     mounted() {
       this.links = this.loadAll();
-    }
+    },
+    computed: {
+      currentTheme() {
+        return this.$store.getters.currentTheme;
+      },
+      myElementStyle() {
+        return {
+          backgroundColor: this.currentTheme.backgroundColor,
+          color: this.currentTheme.textColor,
+        };
+      },
+    },
 };
 </script>
 
@@ -118,10 +137,6 @@ export default {
 //  * {
 //      outline: 1px solid red !important;
 //    }
-  //  .layout-content-menu{
-  //   // font-size: 18px !important;
-  //  }
-
     .popper__arrow::after{
         border-bottom-color: #485656 !important;
     }

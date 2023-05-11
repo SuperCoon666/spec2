@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="page-wrapper">
       <div class="user-header">
         <div class="ava">
           <img src="../assets/ava.webp" alt="avatar" />
@@ -14,7 +14,6 @@
             <el-button class="review-but">Write a post</el-button>
         </div>
       </div>
-      <div></div>
     </div>
   </template>
   
@@ -28,7 +27,18 @@
                 UserAvatar: "../assets/ava.webp",
                 Tg: "https://t.me/Super_Coon"
             }
-        }
+        },
+        computed: {
+            currentTheme() {
+                return this.$store.getters.currentTheme;
+            },
+            myElementStyle() {
+                return {
+                backgroundColor: this.currentTheme.backgroundColor,
+                color: this.currentTheme.textColor,
+                };
+            },
+        },
     }
 </script>
 
@@ -36,6 +46,11 @@
   // * {
   //   outline: 1px solid red !important;
   // }
+  .page-wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
   body {
     margin: 0;
